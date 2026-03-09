@@ -28,7 +28,7 @@ export default function PhotoWall() {
   const x2 = useTransform(scrollYProgress, [0, 1], ["-50%", "0%"]);
 
   return (
-    <section ref={containerRef} className="py-32 bg-charcoal overflow-hidden">
+    <section ref={containerRef} className="py-24 bg-charcoal overflow-hidden">
       <div className="mb-20 px-6 md:px-24">
         <span className="text-sm uppercase tracking-widest text-sage mb-4 block">Immersive Experience</span>
         <h2 className="text-5xl md:text-7xl text-brand-bg">A Journey Through Light</h2>

@@ -22,7 +22,7 @@ function StoryFrame({ image, title, text, reversed }: StoryFrameProps) {
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
   return (
-    <div ref={ref} className={`flex flex-col ${reversed ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-12 mb-32 md:mb-64`}>
+    <div ref={ref} className={`flex flex-col ${reversed ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-12 mb-24 md:mb-32 last:mb-0`}>
       <motion.div 
         style={{ y, opacity }}
         className="w-full md:w-1/2 aspect-[4/5] relative overflow-hidden"
@@ -53,7 +53,7 @@ function StoryFrame({ image, title, text, reversed }: StoryFrameProps) {
 
 export default function StorySection() {
   return (
-    <section id="about" className="py-32 px-6 md:px-24 bg-brand-bg relative z-10">
+    <section id="about" className="py-24 px-6 md:px-24 bg-brand-bg relative z-10">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

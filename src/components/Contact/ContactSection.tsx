@@ -5,7 +5,7 @@ import { Instagram, Mail, Phone } from "lucide-react";
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="py-32 px-6 md:px-24 bg-sand/10">
+    <section id="contact" className="py-24 px-6 md:px-24 bg-sand/10">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-20">
         <div className="md:w-1/2">
           <span className="text-sm uppercase tracking-widest text-sage mb-4 block">Connect</span>

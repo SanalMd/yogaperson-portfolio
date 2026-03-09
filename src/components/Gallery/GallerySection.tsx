@@ -131,7 +131,7 @@ export default function GallerySection() {
   };
 
   return (
-    <section id="portfolio" className="py-32 px-6 md:px-24 bg-brand-bg">
+    <section id="portfolio" className="py-24 px-6 md:px-24 bg-brand-bg">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <span className="text-sm uppercase tracking-widest text-sage mb-4 block">Our Portfolio</span>
