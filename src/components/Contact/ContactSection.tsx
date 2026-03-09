@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Instagram, Mail } from "lucide-react";
+import { Instagram, Mail, Phone } from "lucide-react";
 
 export default function ContactSection() {
   return (
@@ -12,15 +12,25 @@ export default function ContactSection() {
           <h2 className="text-5xl md:text-7xl mb-12">Get in Touch</h2>
           
           <div className="space-y-8">
-            <div className="flex items-center gap-6 group">
+            <a href="mailto:personinda@gmail.com" className="flex items-center gap-6 group">
               <div className="w-12 h-12 rounded-full border border-charcoal/10 flex items-center justify-center group-hover:bg-charcoal group-hover:text-brand-bg transition-all">
                 <Mail size={20} />
               </div>
               <div>
                 <span className="block text-[10px] uppercase tracking-widest text-charcoal/40 mb-1">Email</span>
-                <p className="text-lg">hello@yogaperson.com</p>
+                <p className="text-lg font-sans">personinda@gmail.com</p>
               </div>
-            </div>
+            </a>
+
+            <a href="tel:7356026049" className="flex items-center gap-6 group">
+              <div className="w-12 h-12 rounded-full border border-charcoal/10 flex items-center justify-center group-hover:bg-charcoal group-hover:text-brand-bg transition-all">
+                <Phone size={20} />
+              </div>
+              <div>
+                <span className="block text-[10px] uppercase tracking-widest text-charcoal/40 mb-1">Mobile</span>
+                <p className="text-lg font-sans">+91 7356026049</p>
+              </div>
+            </a>
             
             <a href="https://instagram.com/yogaperson" target="_blank" rel="noopener noreferrer" className="flex items-center gap-6 group cursor-pointer">
               <div className="w-12 h-12 rounded-full border border-charcoal/10 flex items-center justify-center group-hover:bg-charcoal group-hover:text-brand-bg transition-all">

@@ -58,13 +58,12 @@ export default function HeroSection() {
         >
           <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-brand-bg z-10" />
           <Image
-            src="/images/hero.png"
+            src="/images/IMG_0042.jpeg"
             alt="Yogaperson Practice"
             fill
             priority
-            quality={100}
             unoptimized
-            className="object-contain object-bottom select-none"
+            className="object-cover object-center select-none"
           />
         </motion.div>
       </div>

@@ -39,7 +39,7 @@ function Particles({ count = 1000 }) {
 }
 
 function Scene({ mouse }: { mouse: { x: number; y: number } }) {
-  const texture = useTexture("/images/hero.png");
+  const texture = useTexture("/images/IMG_0042.jpeg");
   const meshRef = useRef<THREE.Mesh>(null!);
 
   useFrame((state) => {

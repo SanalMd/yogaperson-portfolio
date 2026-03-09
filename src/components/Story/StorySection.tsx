@@ -67,7 +67,7 @@ export default function StorySection() {
         </motion.div>
 
         <StoryFrame 
-          image="/images/story-1.png"
+          image="/images/IMG_0040.jpeg"
           title="Presence in Motion"
           text="Yoga is more than movement — it is presence, balance, and energy. Through my lens, I capture authentic moments of yoga, telling the story of teachers, retreats, and the spirit of mindful living."
         />
@@ -86,7 +86,7 @@ export default function StorySection() {
         </div>
 
         <StoryFrame 
-          image="/images/story-2.png"
+          image="/images/IMG_0042.jpeg"
           title="Capturing the Spirit"
           text="Creating timeless images for yoga teachers, retreats, and wellness brands around the world. Every shoot is a collaboration, a meditation on light and form."
           reversed

@@ -49,9 +49,9 @@ function FeaturedMoment({ title, image }: FeaturedMomentProps) {
 
 export default function FeaturedSection() {
   const moments = [
-    { title: "Sunrise Yoga Flow", image: "/images/hero.png" },
-    { title: "Mountain Meditation", image: "/images/story-1.png" },
-    { title: "Ocean Yoga Retreat", image: "/images/story-2.png" },
+    { title: "Morning Flow", image: "/images/IMG_0043.jpeg" },
+    { title: "Inner Balance", image: "/images/IMG_0044.jpeg" },
+    { title: "Coastal Spirit", image: "/images/IMG_0045.jpeg" },
   ];
 
   return (

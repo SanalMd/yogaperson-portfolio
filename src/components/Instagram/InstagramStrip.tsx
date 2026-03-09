@@ -4,12 +4,15 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const instaImages = [
-  "/images/hero.png",
-  "/images/story-1.png",
-  "/images/service-1.png",
-  "/images/story-2.png",
-  "/images/service-2.png",
-  "/images/service-3.png",
+  "/images/IMG_0040.jpeg",
+  "/images/IMG_0041.jpeg",
+  "/images/IMG_0042.jpeg",
+  "/images/IMG_0043.jpeg",
+  "/images/IMG_0044.jpeg",
+  "/images/IMG_0045.jpeg",
+  "/images/IMG_0046.jpeg",
+  "/images/IMG_0048.jpeg",
+  "/images/IMG_0049.jpeg",
 ];
 
 export default function InstagramStrip() {
@@ -33,7 +36,8 @@ export default function InstagramStrip() {
                 src={src}
                 alt={`Insta ${idx}`}
                 fill
-                className="object-cover opacity-80 hover:opacity-100 transition-opacity"
+                unoptimized
+                className="object-cover transition-opacity"
               />
             </div>
           ))}
@@ -50,7 +54,8 @@ export default function InstagramStrip() {
                 src={src}
                 alt={`Insta ${idx}`}
                 fill
-                className="object-cover opacity-80 hover:opacity-100 transition-opacity"
+                unoptimized
+                className="object-cover transition-opacity"
               />
             </div>
           ))}

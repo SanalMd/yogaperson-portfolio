@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const poses = [
-  { name: "Vrikshasana", description: "Tree Pose - Improving balance and stability through grounding.", image: "/images/hero.png" },
-  { name: "Virabhadrasana", description: "Warrior Pose - Building strength and focus in body and mind.", image: "/images/service-1.png" },
-  { name: "Adho Mukha Svanasana", description: "Downward-Facing Dog - Lengthening the spine and calming the nervous system.", image: "/images/story-1.png" },
-  { name: "Natarajasana", description: "Dancer's Pose - A beautiful expression of grace and equilibrium.", image: "/images/service-2.png" },
+  { name: "Asana Focus", description: "Presence and balance in every movement.", image: "/images/IMG_0046.jpeg" },
+  { name: "Mindful Reach", description: "Finding space and length in the practice.", image: "/images/IMG_0048.jpeg" },
+  { name: "Nature Connection", description: "Grounding exercises at the shoreline.", image: "/images/IMG_0049.jpeg" },
+  { name: "Fluid Motion", description: "The grace of movement by the water.", image: "/images/IMG_0051.jpeg" },
 ];
 
 export default function PoseGallery() {

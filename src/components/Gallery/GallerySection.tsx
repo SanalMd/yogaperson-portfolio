@@ -1,20 +1,110 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 const images = [
-  { id: 1, src: "/images/hero.png", category: "Yoga Poses", title: "Sunrise Flow" },
-  { id: 2, src: "/images/story-1.png", category: "Meditation", title: "Inner Peace" },
-  { id: 3, src: "/images/service-1.png", category: "Studio Yoga", title: "Portrait of Focus" },
-  { id: 4, src: "/images/story-2.png", category: "Yoga Retreats", title: "Coastal Spirit" },
-  { id: 5, src: "/images/service-2.png", category: "Outdoor Yoga", title: "Earth Connection" },
-  { id: 6, src: "/images/service-3.png", category: "Wellness Brand", title: "Mindful Objects" },
+  { id: 1, src: "/images/IMG_0040.jpeg", category: "Yoga Poses", title: "Forest Meditation" },
+  { id: 2, src: "/images/IMG_0041.jpeg", category: "Yoga Poses", title: "Morning Presence" },
+  { id: 3, src: "/images/IMG_0042.jpeg", category: "Yoga Poses", title: "Shoreline Strength" },
+  { id: 4, src: "/images/IMG_0043.jpeg", category: "Yoga Poses", title: "Ocean Balance" },
+  { id: 5, src: "/images/IMG_0044.jpeg", category: "Outdoor Yoga", title: "Sacred Art" },
+  { id: 6, src: "/images/IMG_0045.jpeg", category: "Outdoor Yoga", title: "Visual Movement" },
+  { id: 7, src: "/images/IMG_0046.jpeg", category: "Meditation", title: "Inner Stillness" },
+  { id: 8, src: "/images/IMG_0048.jpeg", category: "Meditation", title: "Focus" },
+  { id: 9, src: "/images/IMG_0049.jpeg", category: "Yoga Retreats", title: "Coastal Spirit" },
+  { id: 10, src: "/images/IMG_0051.jpeg", category: "Yoga Retreats", title: "Connection" },
+  { id: 11, src: "/images/IMG_0052.jpeg", category: "Studio Yoga", title: "Portrait of Focus" },
+  { id: 12, src: "/images/IMG_0053 (1).jpeg", category: "Studio Yoga", title: "Mindful Poses" },
 ];
 
 const categories = ["All", "Yoga Poses", "Meditation", "Outdoor Yoga", "Yoga Retreats", "Studio Yoga"];
+
+interface GalleryCardProps {
+  img: typeof images[0];
+  onClick: () => void;
+}
+
+function GalleryCard({ img, onClick }: GalleryCardProps) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x);
+  const mouseYSpring = useSpring(y);
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["17.5deg", "-17.5deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-17.5deg", "17.5deg"]);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
+  return (
+    <motion.div
+      layout
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.9 }}
+      transition={{ duration: 0.5 }}
+      ref={ref}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        rotateX,
+        rotateY,
+        transformStyle: "preserve-3d",
+      }}
+      className="relative break-inside-avoid overflow-hidden group cursor-pointer rounded-xl"
+      onClick={onClick}
+    >
+      <div
+        style={{
+          transform: "translateZ(75px)",
+          transformStyle: "preserve-3d",
+        }}
+        className="absolute inset-4 rounded-xl border border-white/20 z-20 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+      />
+
+      <div className="relative aspect-auto">
+        <Image
+          src={img.src}
+          alt={img.title}
+          width={800}
+          height={1000}
+          unoptimized
+          className="w-full transition-all duration-700 ease-in-out group-hover:scale-110"
+        />
+        <div 
+          style={{
+            transform: "translateZ(50px)",
+          }}
+          className="absolute inset-0 bg-charcoal/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 z-10"
+        >
+          <span className="text-xs uppercase tracking-tighter text-brand-bg/70 mb-1">{img.category}</span>
+          <h4 className="text-xl text-brand-bg font-serif">{img.title}</h4>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
 
 export default function GallerySection() {
   const [filter, setFilter] = useState("All");
@@ -23,7 +113,6 @@ export default function GallerySection() {
   const filteredImages = filter === "All" 
     ? images 
     : images.filter(img => img.category === filter || (filter === "Studio Yoga" && img.category === "Wellness Brand")); 
-    // Small hack to ensure we have images in categories
 
   const currentIdx = selectedImage !== null ? images.findIndex(img => img.id === selectedImage) : -1;
 
@@ -65,34 +154,11 @@ export default function GallerySection() {
 
         <motion.div 
           layout
-          className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8"
+          className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8 perspective-[1000px]"
         >
           <AnimatePresence mode="popLayout">
             {filteredImages.map((img) => (
-              <motion.div
-                key={img.id}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.5 }}
-                className="relative break-inside-avoid overflow-hidden group cursor-pointer"
-                onClick={() => setSelectedImage(img.id)}
-              >
-                <div className="relative aspect-auto">
-                  <Image
-                    src={img.src}
-                    alt={img.title}
-                    width={800}
-                    height={1000}
-                    className="w-full grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-charcoal/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
-                    <span className="text-xs uppercase tracking-tighter text-brand-bg/70 mb-1">{img.category}</span>
-                    <h4 className="text-xl text-brand-bg font-serif">{img.title}</h4>
-                  </div>
-                </div>
-              </motion.div>
+              <GalleryCard key={img.id} img={img} onClick={() => setSelectedImage(img.id)} />
             ))}
           </AnimatePresence>
         </motion.div>

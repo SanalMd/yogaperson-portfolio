@@ -5,12 +5,16 @@ import { useRef } from "react";
 import Image from "next/image";
 
 const wallImages = [
-  "/images/hero.png",
-  "/images/story-1.png",
-  "/images/service-1.png",
-  "/images/story-2.png",
-  "/images/service-2.png",
-  "/images/service-3.png",
+  "/images/IMG_0040.jpeg",
+  "/images/IMG_0041.jpeg",
+  "/images/IMG_0042.jpeg",
+  "/images/IMG_0043.jpeg",
+  "/images/IMG_0044.jpeg",
+  "/images/IMG_0045.jpeg",
+  "/images/IMG_0046.jpeg",
+  "/images/IMG_0048.jpeg",
+  "/images/IMG_0049.jpeg",
+  "/images/IMG_0051.jpeg",
 ];
 
 export default function PhotoWall() {
@@ -39,7 +43,8 @@ export default function PhotoWall() {
                 src={src}
                 alt={`Wall ${idx}`}
                 fill
-                className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                unoptimized
+                className="object-cover transition-all duration-700"
               />
             </div>
           ))}
@@ -53,7 +58,8 @@ export default function PhotoWall() {
                 src={src}
                 alt={`Wall Rev ${idx}`}
                 fill
-                className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                unoptimized
+                className="object-cover transition-all duration-700"
               />
             </div>
           ))}

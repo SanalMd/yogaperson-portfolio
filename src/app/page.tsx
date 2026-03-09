@@ -1,6 +1,6 @@
 import HeroSection from "@/components/Hero/HeroSection";
 import StorySection from "@/components/Story/StorySection";
-import ServicesSection from "@/components/Services/ServicesSection";
+
 import GallerySection from "@/components/Gallery/GallerySection";
 import PhotoWall from "@/components/PhotoWall/PhotoWall";
 import FeaturedSection from "@/components/Featured/FeaturedSection";
@@ -18,7 +18,6 @@ export default function Home() {
       <main className="min-h-screen">
         <HeroSection />
         <StorySection />
-        <ServicesSection />
         <GallerySection />
         <PhotoWall />
         <FeaturedSection />
