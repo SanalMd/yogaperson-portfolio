@@ -60,7 +60,7 @@ export default function StorySection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           viewport={{ once: true }}
-          className="text-center mb-32"
+          className="text-center mb-20"
         >
           <span className="text-sm uppercase tracking-widest text-sage mb-4 block">The Journey</span>
           <h2 className="text-5xl md:text-7xl">The Person Behind the Camera</h2>
@@ -72,7 +72,7 @@ export default function StorySection() {
           text="Yoga is more than movement — it is presence, balance, and energy. Through my lens, I capture authentic moments of yoga, telling the story of teachers, retreats, and the spirit of mindful living."
         />
 
-        <div className="my-32 text-center max-w-3xl mx-auto">
+        <div className="my-20 text-center max-w-3xl mx-auto">
           <motion.blockquote
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
